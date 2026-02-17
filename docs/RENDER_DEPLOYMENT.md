@@ -13,10 +13,10 @@ This setup is for a free-tier thesis/demo deployment.
 3. Select this repository and branch.
 4. Render will create:
    - Web service: `techtrek-labrador`
-   - Postgres DB: `techtrek-db` (free plan)
 
 Note:
 - This repo is configured for `runtime: docker` because some Render accounts no longer show native PHP in runtime choices.
+- MySQL is expected as an external database (`DB_CONNECTION=mysql`).
 
 ## 3. Set Required Environment Values
 In the web service environment tab, set:
@@ -25,7 +25,7 @@ In the web service environment tab, set:
 
 Notes:
 - `APP_ENV=production` and `APP_DEBUG=false` are already defined in `render.yaml`.
-- Database variables are auto-linked from Render Postgres.
+- Set MySQL variables manually: `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`.
 
 ## 4. Deploy
 - Trigger deploy from Render (or push to your deploy branch).

@@ -22,27 +22,17 @@ services:
       - key: LOG_LEVEL
         value: info
       - key: DB_CONNECTION
-        value: pgsql
+        value: mysql
       - key: DB_HOST
-        fromDatabase:
-          name: techtrek-db
-          property: host
+        sync: false
       - key: DB_PORT
-        fromDatabase:
-          name: techtrek-db
-          property: port
+        value: "3306"
       - key: DB_DATABASE
-        fromDatabase:
-          name: techtrek-db
-          property: database
+        sync: false
       - key: DB_USERNAME
-        fromDatabase:
-          name: techtrek-db
-          property: user
+        sync: false
       - key: DB_PASSWORD
-        fromDatabase:
-          name: techtrek-db
-          property: password
+        sync: false
       - key: CACHE_STORE
         value: database
       - key: QUEUE_CONNECTION
@@ -51,7 +41,3 @@ services:
         value: database
       - key: SESSION_SECURE_COOKIE
         value: "true"
-
-databases:
-  - name: techtrek-db
-    plan: free
