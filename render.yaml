@@ -43,3 +43,5 @@ services:
         value: "true"
       - key: AUTO_SEED_DATA
         value: "true"
+      - key: AUTO_GENERATE_APP_KEY
+        value: "false"

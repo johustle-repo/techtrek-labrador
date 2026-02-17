@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
+# Ensure APP_KEY exists before Laravel boots.
+if [ -z "${APP_KEY:-}" ]; then
+  if [ "${AUTO_GENERATE_APP_KEY:-false}" = "true" ]; then
+    echo "APP_KEY not found in environment. Generating ephemeral APP_KEY..."
+    php artisan key:generate --force
+  else
+    echo "ERROR: APP_KEY is missing. Set APP_KEY in Render Environment Variables."
+    exit 1
+  fi
+fi
+
 # Support Aiven/managed MySQL SSL without shell access:
 # if MYSQL_ATTR_SSL_CA_PEM is set in Render env, write it to a file
 # and point MYSQL_ATTR_SSL_CA to that file path.
