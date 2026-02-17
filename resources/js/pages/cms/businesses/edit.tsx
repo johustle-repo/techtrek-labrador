@@ -1,0 +1,272 @@
+import { FormEvent } from 'react';
+import { Head, Link, useForm } from '@inertiajs/react';
+import AppLayout from '@/layouts/app-layout';
+import type { BreadcrumbItem } from '@/types';
+import InputError from '@/components/input-error';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
+type Category = { id: number; name: string };
+type Owner = { id: number; name: string; email: string };
+
+type BusinessModel = {
+    id: number;
+    name: string;
+    description: string | null;
+    owner_user_id: number | null;
+    contact_email: string | null;
+    contact_phone: string | null;
+    address: string | null;
+    latitude: number | null;
+    longitude: number | null;
+    category_id: number | null;
+    status: 'draft' | 'published' | 'archived';
+};
+
+type Props = {
+    business: BusinessModel;
+    featuredImageUrl: string | null;
+    categories: Category[];
+    owners: Owner[];
+};
+
+const breadcrumbs: BreadcrumbItem[] = [
+    { title: 'CMS', href: '/cms/dashboard' },
+    { title: 'Businesses', href: '/cms/businesses' },
+    { title: 'Edit', href: '#' },
+];
+
+export default function BusinessesEdit({
+    business,
+    featuredImageUrl,
+    categories,
+    owners,
+}: Props) {
+    const { data, setData, put, processing, errors } = useForm({
+        name: business.name ?? '',
+        description: business.description ?? '',
+        owner_user_id:
+            business.owner_user_id === null ? '' : String(business.owner_user_id),
+        contact_email: business.contact_email ?? '',
+        contact_phone: business.contact_phone ?? '',
+        address: business.address ?? '',
+        latitude: business.latitude === null ? '' : String(business.latitude),
+        longitude: business.longitude === null ? '' : String(business.longitude),
+        featured_image: null as File | null,
+        category_id: business.category_id === null ? '' : String(business.category_id),
+        status: business.status ?? 'draft',
+    });
+
+    const submit = (e: FormEvent) => {
+        e.preventDefault();
+        put(`/cms/businesses/${business.id}`, { forceFormData: true });
+    };
+
+    return (
+        <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title={`Edit ${business.name}`} />
+
+            <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
+                <div className="flex items-start justify-between">
+                    <div>
+                        <h1 className="text-2xl font-semibold tracking-tight">
+                            Edit Business
+                        </h1>
+                        <p className="text-sm text-muted-foreground">
+                            Update listing details and status.
+                        </p>
+                    </div>
+                    <Button asChild variant="outline">
+                        <Link href="/cms/businesses">Back to List</Link>
+                    </Button>
+                </div>
+
+                <form onSubmit={submit} className="grid gap-5 max-w-3xl">
+                    <div className="grid gap-2">
+                        <Label htmlFor="name">Business Name</Label>
+                        <Input
+                            id="name"
+                            value={data.name}
+                            onChange={(e) => setData('name', e.target.value)}
+                        />
+                        <InputError message={errors.name} />
+                    </div>
+
+                    <div className="grid gap-2">
+                        <Label htmlFor="description">Description</Label>
+                        <textarea
+                            id="description"
+                            value={data.description}
+                            onChange={(e) =>
+                                setData('description', e.target.value)
+                            }
+                            className="min-h-32 rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
+                        />
+                        <InputError message={errors.description} />
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div className="grid gap-2">
+                            <Label htmlFor="owner_user_id">Owner Account</Label>
+                            <select
+                                id="owner_user_id"
+                                value={data.owner_user_id}
+                                onChange={(e) =>
+                                    setData('owner_user_id', e.target.value)
+                                }
+                                className="h-10 rounded-md border border-input bg-background px-3 text-sm"
+                            >
+                                <option value="">Unassigned</option>
+                                {owners.map((owner) => (
+                                    <option key={owner.id} value={owner.id}>
+                                        {owner.name} ({owner.email})
+                                    </option>
+                                ))}
+                            </select>
+                            <InputError message={errors.owner_user_id} />
+                        </div>
+
+                        <div className="grid gap-2">
+                            <Label htmlFor="category_id">Category</Label>
+                            <select
+                                id="category_id"
+                                value={data.category_id}
+                                onChange={(e) =>
+                                    setData('category_id', e.target.value)
+                                }
+                                className="h-10 rounded-md border border-input bg-background px-3 text-sm"
+                            >
+                                <option value="">Select category</option>
+                                {categories.map((category) => (
+                                    <option
+                                        key={category.id}
+                                        value={category.id}
+                                    >
+                                        {category.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <InputError message={errors.category_id} />
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div className="grid gap-2">
+                            <Label htmlFor="contact_email">Contact Email</Label>
+                            <Input
+                                id="contact_email"
+                                type="email"
+                                value={data.contact_email}
+                                onChange={(e) =>
+                                    setData('contact_email', e.target.value)
+                                }
+                            />
+                            <InputError message={errors.contact_email} />
+                        </div>
+
+                        <div className="grid gap-2">
+                            <Label htmlFor="contact_phone">Contact Phone</Label>
+                            <Input
+                                id="contact_phone"
+                                value={data.contact_phone}
+                                onChange={(e) =>
+                                    setData('contact_phone', e.target.value)
+                                }
+                            />
+                            <InputError message={errors.contact_phone} />
+                        </div>
+                    </div>
+
+                    <div className="grid gap-2">
+                        <Label htmlFor="address">Address</Label>
+                        <Input
+                            id="address"
+                            value={data.address}
+                            onChange={(e) => setData('address', e.target.value)}
+                        />
+                        <InputError message={errors.address} />
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                        <div className="grid gap-2 md:col-span-3">
+                            <Label htmlFor="featured_image">Featured Image</Label>
+                            {featuredImageUrl && (
+                                <div className="overflow-hidden rounded-lg border">
+                                    <img
+                                        src={featuredImageUrl}
+                                        alt={business.name}
+                                        className="h-40 w-full object-cover"
+                                    />
+                                </div>
+                            )}
+                            <Input
+                                id="featured_image"
+                                type="file"
+                                accept="image/*"
+                                className="h-11 cursor-pointer py-1 text-sm file:mr-4 file:h-8 file:rounded-md file:border-0 file:bg-emerald-700 file:px-4 file:py-0 file:text-sm file:font-semibold file:leading-8 file:text-white hover:file:bg-emerald-800"
+                                onChange={(e) =>
+                                    setData(
+                                        'featured_image',
+                                        e.target.files?.[0] ?? null,
+                                    )
+                                }
+                            />
+                            <InputError message={errors.featured_image} />
+                        </div>
+
+                        <div className="grid gap-2">
+                            <Label htmlFor="latitude">Latitude</Label>
+                            <Input
+                                id="latitude"
+                                type="number"
+                                step="0.0000001"
+                                value={data.latitude}
+                                onChange={(e) =>
+                                    setData('latitude', e.target.value)
+                                }
+                            />
+                            <InputError message={errors.latitude} />
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="longitude">Longitude</Label>
+                            <Input
+                                id="longitude"
+                                type="number"
+                                step="0.0000001"
+                                value={data.longitude}
+                                onChange={(e) =>
+                                    setData('longitude', e.target.value)
+                                }
+                            />
+                            <InputError message={errors.longitude} />
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="status">Status</Label>
+                            <select
+                                id="status"
+                                value={data.status}
+                                onChange={(e) => setData('status', e.target.value)}
+                                className="h-10 rounded-md border border-input bg-background px-3 text-sm"
+                            >
+                                <option value="draft">Draft</option>
+                                <option value="published">Published</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                            <InputError message={errors.status} />
+                        </div>
+                    </div>
+
+                    <div className="flex gap-2">
+                        <Button type="submit" disabled={processing}>
+                            Update Business
+                        </Button>
+                        <Button asChild variant="outline" type="button">
+                            <Link href="/cms/businesses">Cancel</Link>
+                        </Button>
+                    </div>
+                </form>
+            </div>
+        </AppLayout>
+    );
+}
