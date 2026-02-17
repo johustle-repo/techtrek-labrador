@@ -4,6 +4,7 @@ This setup is for a free-tier thesis/demo deployment.
 
 ## 1. Push Required Files
 - `render.yaml`
+- `Dockerfile`
 - `scripts/render-start.sh`
 
 ## 2. Create Render Blueprint
@@ -13,6 +14,9 @@ This setup is for a free-tier thesis/demo deployment.
 4. Render will create:
    - Web service: `techtrek-labrador`
    - Postgres DB: `techtrek-db` (free plan)
+
+Note:
+- This repo is configured for `runtime: docker` because some Render accounts no longer show native PHP in runtime choices.
 
 ## 3. Set Required Environment Values
 In the web service environment tab, set:
@@ -25,13 +29,14 @@ Notes:
 
 ## 4. Deploy
 - Trigger deploy from Render (or push to your deploy branch).
-- Build uses:
+- Docker image build runs:
   - `composer install --no-dev --optimize-autoloader`
   - `npm ci`
   - `npm run build`
-- Start script runs:
+- Container start script runs:
   - `php artisan migrate --force`
   - `php artisan storage:link`
+  - `php artisan optimize:clear`
   - cache warmup commands
   - `php artisan serve --host=0.0.0.0 --port=$PORT`
 

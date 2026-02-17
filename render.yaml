@@ -1,15 +1,10 @@
 services:
   - type: web
     name: techtrek-labrador
-    runtime: php
+    runtime: docker
     plan: free
     region: singapore
     branch: main
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-      npm ci
-      npm run build
-    startCommand: bash scripts/render-start.sh
     healthCheckPath: /up
     envVars:
       - key: APP_NAME
