@@ -25,12 +25,15 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts
 
 COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+
+RUN composer dump-autoload --no-dev --optimize --no-interaction \
+    && php artisan package:discover --ansi
 
 RUN npm run build
 
