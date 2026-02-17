@@ -26,6 +26,8 @@ In the web service environment tab, set:
 Notes:
 - `APP_ENV=production` and `APP_DEBUG=false` are already defined in `render.yaml`.
 - Set MySQL variables manually: `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`.
+- For Aiven SSL, add `MYSQL_ATTR_SSL_CA_PEM` and paste the full CA certificate content.
+  The startup script writes this into `/tmp/mysql-ca.pem` and exports `MYSQL_ATTR_SSL_CA`.
 
 ## 4. Deploy
 - Trigger deploy from Render (or push to your deploy branch).
