@@ -41,3 +41,5 @@ services:
         value: database
       - key: SESSION_SECURE_COOKIE
         value: "true"
+      - key: AUTO_SEED_DATA
+        value: "true"

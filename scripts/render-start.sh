@@ -4,6 +4,10 @@ set -e
 php artisan migrate --force
 php artisan storage:link || true
 
+if [ "${AUTO_SEED_DATA:-true}" = "true" ]; then
+  php artisan db:seed --force
+fi
+
 php artisan optimize:clear
 php artisan config:cache
 php artisan route:cache

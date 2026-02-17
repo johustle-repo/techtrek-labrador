@@ -35,10 +35,15 @@ Notes:
   - `npm run build`
 - Container start script runs:
   - `php artisan migrate --force`
+  - `php artisan db:seed --force` (when `AUTO_SEED_DATA=true`)
   - `php artisan storage:link`
   - `php artisan optimize:clear`
   - cache warmup commands
   - `php artisan serve --host=0.0.0.0 --port=$PORT`
+
+No-shell setup:
+- `AUTO_SEED_DATA=true` is enabled in `render.yaml` so demo accounts/data are seeded automatically on deploy.
+- If you want to disable reseeding later, set `AUTO_SEED_DATA=false` in Render env vars.
 
 ## 5. Post-Deploy Validation
 Run:
