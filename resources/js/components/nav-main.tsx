@@ -17,7 +17,7 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
             <SidebarGroupLabel className="text-sidebar-foreground/75 uppercase tracking-[0.08em]">
                 Platform
             </SidebarGroupLabel>
-            <SidebarMenu>
+            <SidebarMenu className="gap-1.5 group-data-[collapsible=icon]:mt-2 group-data-[collapsible=icon]:gap-2">
                 {items.map((item) => {
                     const active = isCurrentUrl(item.href);
 
@@ -27,11 +27,11 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
                             asChild
                             isActive={active}
                             tooltip={{ children: item.title }}
-                            className="h-10 rounded-xl px-3 font-medium transition-all duration-200 hover:translate-x-0.5 hover:bg-sidebar-accent/90 data-[active=true]:bg-teal-500/18 data-[active=true]:text-white data-[active=true]:shadow-sm data-[active=true]:ring-1 data-[active=true]:ring-teal-200/35"
+                            className="h-10 rounded-xl px-3 font-medium transition-all duration-200 hover:translate-x-0.5 hover:bg-sidebar-accent/90 data-[active=true]:bg-teal-500/18 data-[active=true]:text-white data-[active=true]:shadow-sm data-[active=true]:ring-1 data-[active=true]:ring-teal-200/35 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:[&>span]:hidden"
                         >
                             <Link href={item.href} prefetch>
                                 {item.icon && (
-                                    <item.icon className="h-4 w-4 opacity-95" />
+                                    <item.icon className="h-4.5 w-4.5 opacity-95 group-data-[collapsible=icon]:h-5 group-data-[collapsible=icon]:w-5" />
                                 )}
                                 <span>{item.title}</span>
                                 {active && (

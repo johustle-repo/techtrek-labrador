@@ -71,12 +71,12 @@ export default function OwnerDashboard({
             <Head title="Business Owner Dashboard" />
 
             <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
-                <section className="relative overflow-hidden rounded-3xl border border-emerald-200/80 bg-gradient-to-br from-emerald-100/70 via-white to-teal-100/70 p-5 shadow-lg shadow-emerald-100/60 md:p-6">
-                    <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-100/70 blur-2xl" />
-                    <div className="absolute -left-8 -bottom-10 h-28 w-28 rounded-full bg-emerald-100/60 blur-2xl" />
+                <section className="relative overflow-hidden rounded-3xl border border-emerald-200/80 bg-gradient-to-br from-emerald-100/70 via-white to-teal-100/70 p-5 shadow-lg shadow-emerald-100/60 md:p-6 dark:border-emerald-800/60 dark:bg-gradient-to-br dark:from-emerald-900/45 dark:via-emerald-950/30 dark:to-teal-900/35 dark:shadow-none">
+                    <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-100/70 blur-2xl dark:bg-teal-900/35" />
+                    <div className="absolute -left-8 -bottom-10 h-28 w-28 rounded-full bg-emerald-100/60 blur-2xl dark:bg-emerald-900/35" />
                     <div className="relative flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                         <div className="max-w-2xl">
-                            <div className="mb-2 inline-flex items-center gap-2 rounded-md border bg-white/70 px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                            <div className="mb-2 inline-flex items-center gap-2 rounded-md border bg-white/70 px-2.5 py-1 text-xs font-medium text-muted-foreground dark:border-emerald-800/60 dark:bg-emerald-900/45 dark:text-emerald-100/85">
                                 <Building2 className="h-3.5 w-3.5" />
                                 Business Owner Panel
                             </div>
@@ -90,40 +90,40 @@ export default function OwnerDashboard({
                     </div>
                 </section>
 
-                <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <section className="grid grid-cols-2 gap-4 xl:grid-cols-4">
                     <Card>
                         <CardHeader className="pb-2">
-                            <CardTitle className="text-sm">Total Products</CardTitle>
+                            <CardTitle className="text-sm leading-tight">Total Products</CardTitle>
                         </CardHeader>
-                        <CardContent className="text-3xl font-bold">{metrics.total_products}</CardContent>
+                        <CardContent className="text-2xl font-bold md:text-3xl">{metrics.total_products}</CardContent>
                     </Card>
                     <Card>
                         <CardHeader className="pb-2">
-                            <CardTitle className="text-sm">Total Services</CardTitle>
+                            <CardTitle className="text-sm leading-tight">Total Services</CardTitle>
                         </CardHeader>
-                        <CardContent className="text-3xl font-bold">{metrics.total_services}</CardContent>
+                        <CardContent className="text-2xl font-bold md:text-3xl">{metrics.total_services}</CardContent>
                     </Card>
                     <Card>
                         <CardHeader className="pb-2">
-                            <CardTitle className="text-sm">Total Earnings</CardTitle>
+                            <CardTitle className="text-sm leading-tight">Total Earnings</CardTitle>
                         </CardHeader>
-                        <CardContent className="text-3xl font-bold">
+                        <CardContent className="text-2xl font-bold md:text-3xl">
                             PHP {metrics.total_earnings.toFixed(2)}
                         </CardContent>
                     </Card>
-                    <Card className="border-amber-200 bg-amber-50/60">
+                    <Card className="border-amber-200 bg-amber-50/60 dark:border-amber-800/60 dark:bg-amber-900/25">
                         <CardHeader className="pb-2">
-                            <CardTitle className="text-sm">Pending Requests</CardTitle>
+                            <CardTitle className="text-sm leading-tight">Pending Requests</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-3xl font-bold">{metrics.pending_requests}</p>
-                            <p className="text-xs text-amber-700">{metrics.pending_today} new today</p>
+                            <p className="text-2xl font-bold md:text-3xl">{metrics.pending_requests}</p>
+                            <p className="text-xs text-amber-700 dark:text-amber-200">{metrics.pending_today} new today</p>
                         </CardContent>
                     </Card>
                 </section>
 
                 <section className="grid gap-4 xl:grid-cols-3">
-                    <Card className="xl:col-span-1 border-amber-200 bg-amber-50/50">
+                    <Card className="xl:col-span-1 border-amber-200 bg-amber-50/50 dark:border-amber-800/60 dark:bg-amber-900/20">
                         <CardHeader className="flex flex-row items-center justify-between">
                             <CardTitle className="text-base">Pending Requests</CardTitle>
                             <Link href="/owner/orders?status=pending" className="text-xs font-medium text-amber-700">
@@ -135,7 +135,7 @@ export default function OwnerDashboard({
                                 <p className="text-sm text-muted-foreground">No pending requests right now.</p>
                             )}
                             {pending_requests.map((item) => (
-                                <div key={item.id} className="rounded-lg border border-amber-200 bg-white p-3">
+                                <div key={item.id} className="rounded-lg border border-amber-200 bg-white p-3 dark:border-amber-800/60 dark:bg-amber-950/30">
                                     <p className="text-sm font-semibold">{item.customer_name}</p>
                                     <p className="mt-1 text-xs text-muted-foreground">
                                         {item.business_name ?? 'No business'} | {item.product_name ?? 'Service'}
@@ -154,7 +154,7 @@ export default function OwnerDashboard({
                     <Card className="xl:col-span-1">
                         <CardHeader className="flex flex-row items-center justify-between">
                             <CardTitle className="text-base">My Recent Listings</CardTitle>
-                            <Link href="/owner/businesses" className="text-xs font-medium text-emerald-700">
+                            <Link href="/owner/businesses" className="text-xs font-medium text-emerald-700 dark:text-emerald-300">
                                 View all
                             </Link>
                         </CardHeader>
@@ -181,7 +181,7 @@ export default function OwnerDashboard({
 
                     <Card className="xl:col-span-1">
                         <CardHeader className="flex flex-row items-center gap-2">
-                            <CalendarDays className="h-4 w-4 text-emerald-700" />
+                            <CalendarDays className="h-4 w-4 text-emerald-700 dark:text-emerald-300" />
                             <CardTitle className="text-base">Upcoming Events</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3">
@@ -200,7 +200,7 @@ export default function OwnerDashboard({
 
                     <Card className="xl:col-span-1">
                         <CardHeader className="flex flex-row items-center gap-2">
-                            <Bell className="h-4 w-4 text-emerald-700" />
+                            <Bell className="h-4 w-4 text-emerald-700 dark:text-emerald-300" />
                             <CardTitle className="text-base">Announcements</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3">

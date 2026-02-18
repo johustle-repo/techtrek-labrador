@@ -21,14 +21,14 @@ export function AppSidebar() {
     const { auth } = page.props as { auth: { user?: { role?: string } } };
     const role = auth?.user?.role;
     const dashboardRoute = role === 'super_admin'
-        ? superadminDashboard()
+        ? superadminDashboard().url
         : role === 'lgu_admin'
             ? '/cms/dashboard'
             : role === 'business_owner'
                 ? '/owner/dashboard'
                 : role === 'tourist' || role === 'visitor'
                     ? '/visitor/home'
-                : dashboard();
+                : dashboard().url;
 
     const mainNavItems: NavItem[] = [
         {
@@ -37,6 +37,14 @@ export function AppSidebar() {
             icon: LayoutGrid,
         },
     ];
+
+    if (role === 'super_admin') {
+        mainNavItems.push({
+            title: 'User Management',
+            href: '/superadmin/users',
+            icon: Users,
+        });
+    }
 
     if (role === 'lgu_admin' || role === 'super_admin') {
         mainNavItems.push({
@@ -77,11 +85,6 @@ export function AppSidebar() {
     }
 
     if (role === 'super_admin') {
-        mainNavItems.push({
-            title: 'User Management',
-            href: '/superadmin/users',
-            icon: Users,
-        });
         mainNavItems.push({
             title: 'Audit Logs',
             href: '/superadmin/audit-logs',
@@ -141,7 +144,7 @@ export function AppSidebar() {
     }
 
     return (
-        <Sidebar collapsible="icon" variant="inset">
+        <Sidebar collapsible="icon" variant="sidebar">
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>

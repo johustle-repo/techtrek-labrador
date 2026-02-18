@@ -119,7 +119,7 @@ export default function OwnerOrdersIndex({ orders, summary, pending_queue, filte
                     </div>
                 )}
 
-                <div className="grid gap-3 md:grid-cols-4">
+                <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
                     <Card>
                         <CardContent className="p-4">
                             <p className="text-xs uppercase tracking-wide text-muted-foreground">Total Records</p>

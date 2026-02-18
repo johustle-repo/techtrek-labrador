@@ -148,11 +148,11 @@ export default function SuperAdminDashboard({
     incoming_announcements,
 }: Props) {
     const moduleCardClass =
-        'overflow-hidden border-emerald-100/70 py-0 gap-0 shadow-sm';
+        'overflow-hidden border-emerald-100/70 py-0 gap-0 shadow-sm dark:border-emerald-800/60 dark:bg-emerald-950/35';
     const moduleHeaderClass =
-        'flex flex-row items-center justify-between gap-3 space-y-0 border-b border-emerald-100 bg-gradient-to-r from-emerald-50/80 to-teal-50/80 px-5 py-4';
+        'flex flex-row items-center justify-between gap-3 space-y-0 border-b border-emerald-100 bg-gradient-to-r from-emerald-50/80 to-teal-50/80 px-5 py-4 dark:border-emerald-800/60 dark:bg-gradient-to-r dark:from-emerald-900/55 dark:to-teal-900/45';
     const moduleItemClass =
-        'space-y-2 rounded-xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50/40 p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md';
+        'space-y-2 rounded-xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50/40 p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-emerald-800/60 dark:bg-gradient-to-br dark:from-emerald-950/60 dark:to-emerald-900/30';
     const verificationRate = metrics.total_users
         ? Math.round((metrics.verified_users / metrics.total_users) * 100)
         : 0;
@@ -168,8 +168,8 @@ export default function SuperAdminDashboard({
             value: metrics.total_users,
             subtitle: `${verificationRate}% verified accounts`,
             icon: Users,
-            tone: 'from-emerald-50 to-teal-50',
-            iconTone: 'bg-emerald-100 text-emerald-700',
+            tone: 'from-emerald-50 to-teal-50 dark:from-emerald-900/55 dark:to-teal-900/45',
+            iconTone: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/70 dark:text-emerald-200',
             barTone: 'from-emerald-500 to-teal-500',
         },
         {
@@ -177,8 +177,8 @@ export default function SuperAdminDashboard({
             value: metrics.verified_users,
             subtitle: `${metrics.pending_verifications} pending verification`,
             icon: UserCheck,
-            tone: 'from-teal-50 to-cyan-50',
-            iconTone: 'bg-teal-100 text-teal-700',
+            tone: 'from-teal-50 to-cyan-50 dark:from-teal-900/55 dark:to-cyan-900/45',
+            iconTone: 'bg-teal-100 text-teal-700 dark:bg-teal-900/70 dark:text-teal-200',
             barTone: 'from-teal-500 to-cyan-500',
         },
         {
@@ -186,8 +186,8 @@ export default function SuperAdminDashboard({
             value: metrics.pending_verifications,
             subtitle: 'Accounts waiting approval',
             icon: Activity,
-            tone: 'from-amber-50 to-lime-50',
-            iconTone: 'bg-amber-100 text-amber-700',
+            tone: 'from-amber-50 to-lime-50 dark:from-amber-900/45 dark:to-lime-900/35',
+            iconTone: 'bg-amber-100 text-amber-700 dark:bg-amber-900/60 dark:text-amber-200',
             barTone: 'from-amber-500 to-lime-500',
         },
         {
@@ -195,8 +195,8 @@ export default function SuperAdminDashboard({
             value: metrics.super_admins,
             subtitle: 'Privileged platform operators',
             icon: Shield,
-            tone: 'from-green-50 to-emerald-50',
-            iconTone: 'bg-green-100 text-green-700',
+            tone: 'from-green-50 to-emerald-50 dark:from-green-900/50 dark:to-emerald-900/45',
+            iconTone: 'bg-green-100 text-green-700 dark:bg-green-900/70 dark:text-green-200',
             barTone: 'from-green-600 to-emerald-600',
         },
     ];
@@ -207,8 +207,8 @@ export default function SuperAdminDashboard({
             value: metrics.attractions,
             subtitle: 'Tourist destination entries',
             icon: MapPinned,
-            tone: 'from-emerald-50 to-green-50',
-            iconTone: 'bg-emerald-100 text-emerald-700',
+            tone: 'from-emerald-50 to-green-50 dark:from-emerald-900/55 dark:to-green-900/45',
+            iconTone: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/70 dark:text-emerald-200',
             barTone: 'from-emerald-500 to-green-500',
         },
         {
@@ -216,8 +216,8 @@ export default function SuperAdminDashboard({
             value: metrics.events,
             subtitle: 'Upcoming and archived events',
             icon: CalendarDays,
-            tone: 'from-teal-50 to-emerald-50',
-            iconTone: 'bg-teal-100 text-teal-700',
+            tone: 'from-teal-50 to-emerald-50 dark:from-teal-900/55 dark:to-emerald-900/45',
+            iconTone: 'bg-teal-100 text-teal-700 dark:bg-teal-900/70 dark:text-teal-200',
             barTone: 'from-teal-500 to-emerald-500',
         },
         {
@@ -225,8 +225,8 @@ export default function SuperAdminDashboard({
             value: metrics.businesses,
             subtitle: 'Registered local businesses',
             icon: Building2,
-            tone: 'from-cyan-50 to-teal-50',
-            iconTone: 'bg-cyan-100 text-cyan-700',
+            tone: 'from-cyan-50 to-teal-50 dark:from-cyan-900/50 dark:to-teal-900/45',
+            iconTone: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/70 dark:text-cyan-200',
             barTone: 'from-cyan-500 to-teal-500',
         },
         {
@@ -234,8 +234,8 @@ export default function SuperAdminDashboard({
             value: metrics.announcements,
             subtitle: 'Public advisories and notices',
             icon: FileText,
-            tone: 'from-lime-50 to-emerald-50',
-            iconTone: 'bg-lime-100 text-lime-700',
+            tone: 'from-lime-50 to-emerald-50 dark:from-lime-900/35 dark:to-emerald-900/45',
+            iconTone: 'bg-lime-100 text-lime-700 dark:bg-lime-900/60 dark:text-lime-200',
             barTone: 'from-lime-500 to-emerald-500',
         },
     ];
@@ -245,12 +245,12 @@ export default function SuperAdminDashboard({
             <Head title="Super Admin Dashboard" />
 
             <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
-                <section className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-teal-50/80 via-background to-background p-5 md:p-6">
-                    <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-100/70 blur-2xl" />
-                    <div className="absolute -left-8 -bottom-10 h-28 w-28 rounded-full bg-emerald-100/60 blur-2xl" />
+                <section className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-teal-50/80 via-background to-background p-5 md:p-6 dark:border-emerald-800/60 dark:bg-gradient-to-br dark:from-emerald-900/40 dark:via-background dark:to-emerald-950/30">
+                    <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-100/70 blur-2xl dark:bg-teal-900/40" />
+                    <div className="absolute -left-8 -bottom-10 h-28 w-28 rounded-full bg-emerald-100/60 blur-2xl dark:bg-emerald-900/35" />
                     <div className="relative flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                         <div className="max-w-2xl">
-                            <div className="mb-2 inline-flex items-center gap-2 rounded-md border bg-white/70 px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                            <div className="mb-2 inline-flex items-center gap-2 rounded-md border bg-white/70 px-2.5 py-1 text-xs font-medium text-muted-foreground dark:border-emerald-800/60 dark:bg-emerald-900/45">
                                 <Shield className="h-3.5 w-3.5" />
                                 Super Admin Module
                             </div>
@@ -262,8 +262,8 @@ export default function SuperAdminDashboard({
                             </p>
                         </div>
 
-                        <div className="flex w-full items-start justify-start gap-3 md:w-auto md:justify-end">
-                            <div className="min-w-[160px] rounded-xl border bg-white/80 px-4 py-2 text-sm">
+                        <div className="grid w-full grid-cols-2 gap-3 md:flex md:w-auto md:items-start md:justify-end">
+                            <div className="rounded-xl border bg-white/80 px-4 py-2 text-sm md:min-w-[160px] dark:border-emerald-800/60 dark:bg-emerald-900/45">
                                 <p className="text-muted-foreground">
                                     Total users
                                 </p>
@@ -271,7 +271,7 @@ export default function SuperAdminDashboard({
                                     {formatNumber(metrics.total_users)}
                                 </p>
                             </div>
-                            <div className="min-w-[160px] rounded-xl border bg-white/80 px-4 py-2 text-sm">
+                            <div className="rounded-xl border bg-white/80 px-4 py-2 text-sm md:min-w-[160px] dark:border-emerald-800/60 dark:bg-emerald-900/45">
                                 <p className="text-muted-foreground">
                                     Total content
                                 </p>
@@ -283,15 +283,15 @@ export default function SuperAdminDashboard({
                     </div>
                 </section>
 
-                <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <section className="grid grid-cols-2 gap-4 xl:grid-cols-4">
                     {topMetrics.map((item) => (
                         <Card
                             key={item.label}
-                            className={`group relative overflow-hidden border-white/60 bg-gradient-to-br ${item.tone} shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md`}
+                            className={`group relative overflow-hidden border-white/60 bg-gradient-to-br ${item.tone} shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-emerald-800/55`}
                         >
-                            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/60 blur-xl" />
+                            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/60 blur-xl dark:bg-emerald-900/35" />
                             <CardHeader className="relative flex-row items-center justify-between pb-2">
-                                <CardTitle className="text-sm font-medium text-slate-700">
+                                <CardTitle className="text-sm font-medium text-foreground/85">
                                     {item.label}
                                 </CardTitle>
                                 <div
@@ -301,10 +301,10 @@ export default function SuperAdminDashboard({
                                 </div>
                             </CardHeader>
                             <CardContent className="relative">
-                                <div className="text-4xl font-bold tracking-tight text-slate-900">
+                                <div className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                                     {formatNumber(item.value)}
                                 </div>
-                                <p className="mt-2 text-xs text-slate-600">
+                                <p className="mt-2 text-xs text-muted-foreground">
                                     {item.subtitle}
                                 </p>
                                 <div
@@ -315,15 +315,15 @@ export default function SuperAdminDashboard({
                     ))}
                 </section>
 
-                <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <section className="grid grid-cols-2 gap-4 xl:grid-cols-4">
                     {cmsMetrics.map((item) => (
                         <Card
                             key={item.label}
-                            className={`group relative overflow-hidden border-white/60 bg-gradient-to-br ${item.tone} shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md`}
+                            className={`group relative overflow-hidden border-white/60 bg-gradient-to-br ${item.tone} shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-emerald-800/55`}
                         >
-                            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/60 blur-xl" />
+                            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/60 blur-xl dark:bg-emerald-900/35" />
                             <CardHeader className="relative flex-row items-center justify-between pb-2">
-                                <CardTitle className="text-sm font-medium text-slate-700">
+                                <CardTitle className="text-sm font-medium text-foreground/85">
                                     {item.label}
                                 </CardTitle>
                                 <div
@@ -333,10 +333,10 @@ export default function SuperAdminDashboard({
                                 </div>
                             </CardHeader>
                             <CardContent className="relative">
-                                <div className="text-4xl font-bold tracking-tight text-slate-900">
+                                <div className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                                     {formatNumber(item.value)}
                                 </div>
-                                <p className="mt-2 text-xs text-slate-600">
+                                <p className="mt-2 text-xs text-muted-foreground">
                                     {item.subtitle}
                                 </p>
                                 <div

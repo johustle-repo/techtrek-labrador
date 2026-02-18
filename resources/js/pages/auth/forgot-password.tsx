@@ -54,7 +54,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
         <>
             <Head title="Forgot password - TechTrek Labrador" />
 
-            <div className="min-h-screen w-full lg:grid lg:grid-cols-2 font-['Instrument_Sans']">
+            <div className="auth-page min-h-[100svh] w-full overflow-y-auto lg:grid lg:grid-cols-2 font-['Instrument_Sans']">
                 <div className="relative hidden h-full flex-col justify-between overflow-hidden bg-slate-900 p-12 text-white lg:flex">
                     <div className="absolute inset-0 transition-opacity duration-700 ease-in-out">
                         <img
@@ -118,8 +118,21 @@ export default function ForgotPassword({ status }: { status?: string }) {
                     </div>
                 </div>
 
-                <div className="relative flex items-center justify-center bg-slate-50 p-8 lg:p-12">
-                    <div className="mx-auto flex w-full flex-col justify-center space-y-8 sm:w-[400px] relative z-10">
+                <div className="relative flex min-h-[100svh] items-center justify-center bg-gradient-to-b from-teal-50 via-slate-50 to-white px-4 py-6 sm:px-6 sm:py-8 lg:bg-slate-50 lg:p-12">
+                    <div className="relative z-10 mx-auto w-full max-w-md rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200/80 sm:p-6 dark:border dark:border-emerald-800/65 dark:bg-emerald-950/70 dark:shadow-xl dark:shadow-emerald-950/40 dark:backdrop-blur-xl lg:max-w-[430px] lg:rounded-2xl lg:bg-white/95 lg:p-6 lg:shadow-lg lg:ring-1">
+                    <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:space-y-7">
+                        <div className="relative overflow-hidden rounded-2xl border border-white/30 shadow-lg lg:hidden">
+                            <img
+                                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop"
+                                alt="Labrador coast"
+                                className="h-28 w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-teal-900/70 to-emerald-700/30" />
+                            <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+                                <p className="text-xs font-semibold uppercase tracking-wider text-teal-100">TechTrek Labrador</p>
+                                <p className="text-sm font-bold">Account recovery</p>
+                            </div>
+                        </div>
                         <div className="flex flex-col space-y-2 text-left">
                             <h1 className="text-3xl font-bold tracking-tight text-slate-900">Forgot password</h1>
                             <p className="text-sm text-slate-500">Enter your email to receive a password reset link.</p>
@@ -184,6 +197,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
                                 </>
                             )}
                         </Form>
+                    </div>
                     </div>
                 </div>
             </div>

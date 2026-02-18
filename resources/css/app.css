@@ -62,6 +62,7 @@
 }
 
 :root {
+    color-scheme: light;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -98,38 +99,39 @@
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.145 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.7 0.125 180.5);
-    --primary-foreground: oklch(0.18 0.02 183);
-    --secondary: oklch(0.24 0.02 183);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.24 0.02 183);
-    --muted-foreground: oklch(0.73 0.03 180);
-    --accent: oklch(0.27 0.03 180);
-    --accent-foreground: oklch(0.985 0 0);
+    color-scheme: dark;
+    --background: oklch(0.24 0.06 171);
+    --foreground: oklch(0.97 0.01 180);
+    --card: oklch(0.28 0.055 171);
+    --card-foreground: oklch(0.97 0.01 180);
+    --popover: oklch(0.27 0.055 171);
+    --popover-foreground: oklch(0.97 0.01 180);
+    --primary: oklch(0.74 0.11 180.5);
+    --primary-foreground: oklch(0.24 0.05 171);
+    --secondary: oklch(0.33 0.06 171);
+    --secondary-foreground: oklch(0.97 0.01 180);
+    --muted: oklch(0.31 0.05 171);
+    --muted-foreground: oklch(0.88 0.02 179);
+    --accent: oklch(0.36 0.07 171);
+    --accent-foreground: oklch(0.97 0.01 180);
     --destructive: oklch(0.396 0.141 25.723);
     --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: oklch(0.3 0.02 180);
-    --input: oklch(0.3 0.02 180);
-    --ring: oklch(0.67 0.11 181);
+    --border: oklch(0.4 0.05 172);
+    --input: oklch(0.4 0.05 172);
+    --ring: oklch(0.73 0.11 181);
     --chart-1: oklch(0.488 0.243 264.376);
     --chart-2: oklch(0.696 0.17 162.48);
     --chart-3: oklch(0.769 0.188 70.08);
     --chart-4: oklch(0.627 0.265 303.9);
     --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(0.24 0.055 172);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.7 0.125 180.5);
-    --sidebar-primary-foreground: oklch(0.18 0.02 183);
-    --sidebar-accent: oklch(0.33 0.06 172);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(0.37 0.05 172);
-    --sidebar-ring: oklch(0.67 0.11 181);
+    --sidebar: oklch(0.22 0.065 171);
+    --sidebar-foreground: oklch(0.97 0.01 180);
+    --sidebar-primary: oklch(0.72 0.115 180.5);
+    --sidebar-primary-foreground: oklch(0.24 0.05 171);
+    --sidebar-accent: oklch(0.31 0.07 171);
+    --sidebar-accent-foreground: oklch(0.97 0.01 180);
+    --sidebar-border: oklch(0.39 0.055 172);
+    --sidebar-ring: oklch(0.73 0.11 181);
 }
 
 @layer base {
@@ -139,5 +141,230 @@
 
     body {
         @apply bg-background text-foreground;
+        overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    html,
+    body,
+    #app {
+        min-height: 100%;
+    }
+
+    img,
+    video,
+    canvas,
+    svg,
+    iframe {
+        max-width: 100%;
+    }
+
+    img,
+    video,
+    canvas,
+    svg {
+        height: auto;
+    }
+}
+
+@layer utilities {
+    .dark .text-slate-900 {
+        color: oklch(0.97 0.01 180) !important;
+    }
+
+    .dark .text-slate-800 {
+        color: oklch(0.95 0.015 180) !important;
+    }
+
+    .dark .text-slate-700 {
+        color: oklch(0.9 0.02 180) !important;
+    }
+
+    .dark .text-slate-600,
+    .dark .text-slate-500 {
+        color: oklch(0.86 0.02 179) !important;
+    }
+
+    .dark .bg-white,
+    .dark .bg-white\/90,
+    .dark .bg-white\/85,
+    .dark .bg-white\/80,
+    .dark .bg-white\/70 {
+        background-color: oklch(0.29 0.055 171) !important;
+    }
+
+    .dark .border-emerald-100,
+    .dark .border-emerald-200,
+    .dark .border-teal-200,
+    .dark .border-cyan-200,
+    .dark .border-lime-200,
+    .dark .border-amber-200,
+    .dark .border-slate-300 {
+        border-color: oklch(0.4 0.055 172) !important;
+    }
+
+    .dark .bg-emerald-50,
+    .dark .bg-emerald-100,
+    .dark .bg-teal-50,
+    .dark .bg-teal-100,
+    .dark .bg-cyan-50,
+    .dark .bg-cyan-100,
+    .dark .bg-lime-50,
+    .dark .bg-lime-100,
+    .dark .bg-amber-50,
+    .dark .bg-amber-100,
+    .dark .bg-slate-100 {
+        background-color: oklch(0.31 0.06 171) !important;
+    }
+
+    .dark .bg-emerald-50\/60,
+    .dark .bg-emerald-50\/50,
+    .dark .bg-emerald-50\/40,
+    .dark .bg-teal-50\/60,
+    .dark .bg-teal-50\/50,
+    .dark .bg-teal-50\/40,
+    .dark .bg-amber-50\/60,
+    .dark .bg-amber-50\/50 {
+        background-color: oklch(0.3 0.06 171 / 0.65) !important;
+    }
+
+    .dark .from-white {
+        --tw-gradient-from: oklch(0.29 0.055 171) var(--tw-gradient-from-position) !important;
+        --tw-gradient-to: oklch(0.29 0.055 171 / 0) var(--tw-gradient-to-position) !important;
+    }
+
+    .dark .via-white {
+        --tw-gradient-via: oklch(0.28 0.055 171) var(--tw-gradient-via-position) !important;
+    }
+
+    .dark .to-white {
+        --tw-gradient-to: oklch(0.28 0.055 171) var(--tw-gradient-to-position) !important;
+    }
+
+    /* Use clean flat surfaces in dark mode (no overlay-style gradients) */
+    .dark .bg-gradient-to-br,
+    .dark .bg-gradient-to-r,
+    .dark .bg-gradient-to-l,
+    .dark .bg-gradient-to-t,
+    .dark .bg-gradient-to-b {
+        background-image: none !important;
+        background-color: oklch(0.24 0.065 171) !important;
+    }
+
+    /* Remove decorative glow/shade effects globally in dark mode */
+    .dark .blur-2xl,
+    .dark .blur-3xl {
+        display: none !important;
+    }
+
+    .dark .shadow-sm,
+    .dark .shadow-md,
+    .dark .shadow-lg,
+    .dark .shadow-xl,
+    .dark .shadow-2xl {
+        box-shadow: none !important;
+    }
+
+    /* Keep hero image shade/overlay styling in welcome page */
+    .dark .welcome-page .bg-gradient-to-br,
+    .dark .welcome-page .bg-gradient-to-r,
+    .dark .welcome-page .bg-gradient-to-l,
+    .dark .welcome-page .bg-gradient-to-t,
+    .dark .welcome-page .bg-gradient-to-b {
+        background-image: linear-gradient(var(--tw-gradient-stops)) !important;
+        background-color: transparent !important;
+    }
+
+    .dark .welcome-page .bg-gradient-to-b {
+        background-image: linear-gradient(to bottom, var(--tw-gradient-stops)) !important;
+    }
+
+    .dark .welcome-page .bg-gradient-to-t {
+        background-image: linear-gradient(to top, var(--tw-gradient-stops)) !important;
+    }
+
+    .dark .welcome-page .bg-gradient-to-r {
+        background-image: linear-gradient(to right, var(--tw-gradient-stops)) !important;
+    }
+
+    .dark .welcome-page .bg-gradient-to-l {
+        background-image: linear-gradient(to left, var(--tw-gradient-stops)) !important;
+    }
+
+    .dark .welcome-page .bg-gradient-to-br {
+        background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)) !important;
+    }
+
+    .dark .welcome-page .shadow-sm,
+    .dark .welcome-page .shadow-md,
+    .dark .welcome-page .shadow-lg,
+    .dark .welcome-page .shadow-xl,
+    .dark .welcome-page .shadow-2xl {
+        box-shadow: revert-layer !important;
+    }
+
+    /* Keep original hero/overlay treatment on auth screens */
+    .dark .auth-page .bg-gradient-to-br,
+    .dark .auth-page .bg-gradient-to-r,
+    .dark .auth-page .bg-gradient-to-l,
+    .dark .auth-page .bg-gradient-to-t,
+    .dark .auth-page .bg-gradient-to-b {
+        background-image: revert-layer !important;
+        background-color: transparent !important;
+    }
+
+    .dark .auth-page .blur-2xl,
+    .dark .auth-page .blur-3xl {
+        display: block !important;
+    }
+
+    .dark .auth-page .shadow-sm,
+    .dark .auth-page .shadow-md,
+    .dark .auth-page .shadow-lg,
+    .dark .auth-page .shadow-xl,
+    .dark .auth-page .shadow-2xl {
+        box-shadow: revert-layer !important;
+    }
+
+    /* Dark-mode readability tuning for auth forms */
+    .dark .auth-page .text-slate-600,
+    .dark .auth-page .text-slate-500,
+    .dark .auth-page .text-slate-400 {
+        color: oklch(0.9 0.02 179) !important;
+    }
+
+    .dark .auth-page input {
+        color: oklch(0.97 0.01 180) !important;
+        border-color: oklch(0.44 0.06 172) !important;
+        background-color: oklch(0.29 0.055 171) !important;
+    }
+
+    .dark .auth-page input::placeholder {
+        color: oklch(0.8 0.02 179) !important;
+    }
+
+    .dark .auth-page .text-slate-700 {
+        color: oklch(0.94 0.02 179) !important;
+    }
+
+    .dark .welcome-page .text-slate-600,
+    .dark .welcome-page .text-slate-500 {
+        color: oklch(0.86 0.02 179) !important;
+    }
+
+    .dark .welcome-page .text-emerald-800 {
+        color: oklch(0.9 0.06 171) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

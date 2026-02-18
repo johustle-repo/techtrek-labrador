@@ -64,29 +64,29 @@ export default function EventsIndex({ events }: Props) {
             <Head title="CMS Events" />
 
             <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
-                <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-teal-50/70 via-background to-background p-5 md:p-6">
-                    <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-100/70 blur-2xl" />
-                    <div className="absolute -left-8 -bottom-10 h-28 w-28 rounded-full bg-emerald-100/60 blur-2xl" />
+                <div className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-teal-50/70 via-background to-background p-5 md:p-6 dark:border-emerald-800/60 dark:bg-gradient-to-br dark:from-emerald-900/45 dark:via-emerald-950/30 dark:to-teal-900/35">
+                    <div className="absolute -right-10 -top-12 h-40 w-40 rounded-full bg-teal-100/70 blur-2xl dark:bg-teal-900/35" />
+                    <div className="absolute -left-8 -bottom-10 h-28 w-28 rounded-full bg-emerald-100/60 blur-2xl dark:bg-emerald-900/35" />
                     <div className="relative flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                         <div className="max-w-2xl">
-                            <div className="mb-2 inline-flex items-center gap-2 rounded-md border bg-white/70 px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                            <div className="mb-2 inline-flex items-center gap-2 rounded-md border bg-white/70 px-2.5 py-1 text-xs font-medium text-muted-foreground dark:border-emerald-800/60 dark:bg-emerald-900/45 dark:text-emerald-100/85">
                                 <Layers3 className="h-3.5 w-3.5" />
                                 CMS Module
                             </div>
                             <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
                                 Events Planner
                             </h1>
-                            <p className="mt-1 text-sm text-muted-foreground">
+                            <p className="mt-1 text-sm text-muted-foreground dark:text-emerald-100/80">
                                 Manage tourism events and announcements schedule.
                             </p>
                         </div>
 
                         <div className="flex w-full items-start justify-start gap-3 md:w-auto md:justify-end">
-                            <div className="min-w-[160px] rounded-xl border bg-white/80 px-4 py-2 text-sm">
-                                <p className="text-muted-foreground">
+                            <div className="min-w-[160px] rounded-xl border bg-white/80 px-4 py-2 text-sm dark:border-emerald-800/60 dark:bg-emerald-900/45">
+                                <p className="text-muted-foreground dark:text-emerald-100/75">
                                     Total records
                                 </p>
-                                <p className="text-lg font-semibold">
+                                <p className="text-lg font-semibold dark:text-emerald-50">
                                     {totalRecords}
                                 </p>
                             </div>
@@ -101,7 +101,7 @@ export default function EventsIndex({ events }: Props) {
                 </div>
 
                 {success && (
-                    <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700">
+                    <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700 dark:border-emerald-800/60 dark:bg-emerald-900/30 dark:text-emerald-200">
                         {success}
                     </div>
                 )}

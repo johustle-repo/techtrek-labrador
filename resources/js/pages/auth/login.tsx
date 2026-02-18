@@ -71,7 +71,7 @@ export default function Login({
         <>
             <Head title="Log in - TechTrek Labrador" />
 
-            <div className="min-h-screen w-full lg:grid lg:grid-cols-2 font-['Instrument_Sans']">
+            <div className="auth-page min-h-[100svh] w-full overflow-y-auto lg:grid lg:grid-cols-2 font-['Instrument_Sans']">
                 
                 {/* --- LEFT COLUMN: Rotating Tech-Tourism Visual --- */}
                 <div className="relative hidden h-full flex-col justify-between overflow-hidden bg-slate-900 p-12 text-white lg:flex">
@@ -155,12 +155,25 @@ export default function Login({
                 </div>
 
                 {/* --- RIGHT COLUMN: Login Form --- */}
-                <div className="relative flex items-center justify-center bg-slate-50 p-8 lg:p-12">
-                    <div className="mx-auto flex w-full flex-col justify-center space-y-8 sm:w-[400px] relative z-10">
+                <div className="relative flex min-h-[100svh] items-center justify-center bg-gradient-to-b from-teal-50 via-slate-50 to-white px-4 py-6 sm:px-6 sm:py-8 lg:bg-slate-50 lg:p-12">
+                    <div className="relative z-10 mx-auto w-full max-w-md rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200/80 sm:p-6 dark:border dark:border-emerald-800/65 dark:bg-emerald-950/70 dark:shadow-xl dark:shadow-emerald-950/40 dark:backdrop-blur-xl lg:max-w-[430px] lg:rounded-2xl lg:bg-white/95 lg:p-6 lg:shadow-lg lg:ring-1">
+                    <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:space-y-7">
+                        <div className="relative overflow-hidden rounded-2xl border border-white/30 shadow-lg lg:hidden">
+                            <img
+                                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop"
+                                alt="Labrador coast"
+                                className="h-28 w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-teal-900/70 to-emerald-700/30" />
+                            <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+                                <p className="text-xs font-semibold uppercase tracking-wider text-teal-100">TechTrek Labrador</p>
+                                <p className="text-sm font-bold">Tourism Portal Access</p>
+                            </div>
+                        </div>
                         
                         {/* Header */}
                         <div className="flex flex-col space-y-2 text-left">
-                            <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+                            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
                                 Welcome back
                             </h1>
                             <p className="text-sm text-slate-500">
@@ -179,7 +192,7 @@ export default function Login({
                         <Form
                             {...store.form()}
                             resetOnSuccess={['password']}
-                            className="grid gap-5"
+                            className="grid gap-4 sm:gap-5"
                         >
                             {({ processing, errors }) => (
                                 <>
@@ -259,10 +272,10 @@ export default function Login({
                                                 {canResetPassword && (
                                                     <Link
                                                         href={request()}
-                                                        className="text-xs font-medium text-teal-600 hover:text-teal-700 hover:underline"
-                                                        tabIndex={5}
-                                                    >
-                                                        Forgot password?
+                                                    className="text-sm font-semibold text-teal-600 hover:text-teal-700 hover:underline"
+                                                    tabIndex={5}
+                                                >
+                                                    Forgot password?
                                                     </Link>
                                                 )}
                                             </div>
@@ -271,14 +284,14 @@ export default function Login({
                                         </div>
 
                                         {/* Remember Me */}
-                                        <div className="flex items-center space-x-2 my-2">
+                                        <div className="my-2 flex items-start gap-2.5 sm:items-center">
                                             <Checkbox
                                                 id="remember"
                                                 name="remember"
                                                 tabIndex={3}
                                                 className="data-[state=checked]:bg-teal-600 data-[state=checked]:border-teal-600 border-slate-300 text-white rounded-[4px] h-4 w-4"
                                             />
-                                            <Label htmlFor="remember" className="text-sm font-medium leading-none text-slate-600 cursor-pointer select-none">
+                                            <Label htmlFor="remember" className="cursor-pointer select-none text-sm leading-normal font-medium text-slate-600">
                                                 Remember me for 30 days
                                             </Label>
                                         </div>
@@ -286,7 +299,7 @@ export default function Login({
                                         {/* Submit Button */}
                                         <Button
                                             type="submit"
-                                            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-6 rounded-xl shadow-lg shadow-teal-600/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-base"
+                                            className="w-full rounded-xl bg-teal-600 py-5 text-base font-bold text-white shadow-lg shadow-teal-600/20 transition-all hover:scale-[1.02] hover:bg-teal-700 active:scale-[0.98] sm:py-6"
                                             tabIndex={4}
                                             disabled={processing}
                                         >
@@ -296,7 +309,7 @@ export default function Login({
                                     </div>
 
                                     {/* Footer: Create Account + Home Link */}
-                                    <div className="space-y-4 text-center pt-2">
+                                    <div className="space-y-4 pt-1 text-center sm:pt-2">
                                         {canRegister && (
                                             <p className="text-sm text-slate-600">
                                                 Don't have an account?{' '}
@@ -323,6 +336,7 @@ export default function Login({
                                 </>
                             )}
                         </Form>
+                    </div>
                     </div>
                 </div>
             </div>

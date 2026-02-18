@@ -50,14 +50,14 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
     const getInitials = useInitials();
     const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
     const dashboardRoute = role === 'super_admin'
-        ? superadminDashboard()
+        ? superadminDashboard().url
         : role === 'lgu_admin'
             ? '/cms/dashboard'
             : role === 'business_owner'
                 ? '/owner/dashboard'
                 : role === 'tourist' || role === 'visitor'
                     ? '/visitor/home'
-            : dashboard();
+            : dashboard().url;
     const mainNavItems: NavItem[] = [
         {
             title: role === 'tourist' || role === 'visitor' ? 'Home' : 'Dashboard',

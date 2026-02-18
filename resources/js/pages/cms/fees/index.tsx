@@ -128,7 +128,7 @@ export default function FeesIndex({ fees, summary }: Props) {
                     </div>
                 )}
 
-                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
                     <div className="rounded-xl border bg-card p-4">
                         <p className="text-sm text-muted-foreground">Active rules</p>
                         <p className="text-2xl font-bold">{summary.active}</p>
