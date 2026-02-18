@@ -17,12 +17,18 @@ import {
 import { UserInfo } from '@/components/user-info';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
+import { cn } from '@/lib/utils';
 
-export function NavUser() {
+type NavUserProps = {
+    role?: string;
+};
+
+export function NavUser({ role }: NavUserProps) {
     const { auth } = usePage().props as { auth: { user: any } };
     const { state } = useSidebar();
     const isMobile = useIsMobile();
     const cleanup = useMobileNavigation();
+    const isVisitorRole = role === 'tourist' || role === 'visitor';
 
     return (
         <SidebarMenu>
@@ -32,7 +38,10 @@ export function NavUser() {
                         <SidebarMenuButton
                             size="lg"
                             type="button"
-                            className="group text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent"
+                            className={cn(
+                                'group text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent',
+                                isVisitorRole && 'h-12 rounded-2xl bg-emerald-800/45 text-emerald-50 hover:bg-emerald-700/55',
+                            )}
                             data-test="sidebar-menu-button"
                         >
                             <UserInfo user={auth.user} />

@@ -98,7 +98,7 @@ export default function VisitorOrdersIndex({ orders, summary, filters, base_path
                             Track your product purchases and service bookings in one place.
                         </p>
 
-                        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
                             <Card><CardContent className="p-4"><p className="text-xs uppercase text-slate-500">Total</p><p className="text-2xl font-bold">{summary.total}</p></CardContent></Card>
                             <Card><CardContent className="p-4"><p className="text-xs uppercase text-slate-500">Product Orders</p><p className="text-2xl font-bold">{summary.orders}</p></CardContent></Card>
                             <Card><CardContent className="p-4"><p className="text-xs uppercase text-slate-500">Bookings</p><p className="text-2xl font-bold">{summary.bookings}</p></CardContent></Card>

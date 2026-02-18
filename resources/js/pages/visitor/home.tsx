@@ -84,15 +84,20 @@ export default function VisitorHome({
             <Head title="Visitor Home" />
 
             <div className="visitor-page flex flex-1 flex-col gap-6 bg-slate-50 p-4 md:p-6">
-                <section className="relative overflow-hidden rounded-3xl border border-emerald-200 shadow-lg shadow-emerald-900/10">
-                    <div className="absolute inset-0">
-                        <img
-                            src="/bolo-beach-hero.jpg"
-                            alt="Labrador coastline"
-                            className="h-full w-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-900/75 to-emerald-900/55" />
-                    </div>
+                <section
+                    className="relative overflow-hidden rounded-3xl border border-emerald-200 shadow-lg shadow-emerald-900/10"
+                    style={{
+                        backgroundImage: "url('/bolo-beach-hero.jpg')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                >
+                    <img
+                        src="/bolo-beach-hero.jpg"
+                        alt="Labrador coastline"
+                        className="absolute inset-0 h-full w-full object-cover opacity-55"
+                    />
+                    <div className="visitor-hero-overlay absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-900/55 to-emerald-900/20 md:from-emerald-950/90 md:via-emerald-900/60 md:to-emerald-900/25" />
 
                     <div className="relative grid gap-6 p-6 md:grid-cols-[1.2fr_0.8fr] md:p-8">
                         <div className="space-y-4 text-white">
@@ -110,7 +115,7 @@ export default function VisitorHome({
                             <div className="flex flex-wrap gap-3">
                                 <Link
                                     href="/attractions"
-                                    className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-emerald-900 transition hover:bg-emerald-50"
+                                    className="rounded-full bg-emerald-600/90 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-500"
                                 >
                                     Explore Attractions
                                 </Link>
@@ -123,7 +128,7 @@ export default function VisitorHome({
                             </div>
                         </div>
 
-                        <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="grid grid-cols-2 gap-3">
                             {Object.entries(quick_facts).map(([label, value]) => (
                                 <div
                                     key={label}
@@ -139,7 +144,7 @@ export default function VisitorHome({
                     </div>
                 </section>
 
-                <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <section className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
                     <KpiCard icon={Compass} label="Published Attractions" value={stats.attractions} />
                     <KpiCard icon={CalendarDays} label="Published Events" value={stats.events} />
                     <KpiCard icon={Store} label="Local Businesses" value={stats.businesses} />

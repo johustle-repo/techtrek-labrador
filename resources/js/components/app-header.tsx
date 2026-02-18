@@ -186,26 +186,38 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                             </SheetTrigger>
                             <SheetContent
                                 side="left"
-                                className="flex h-full w-64 flex-col items-stretch justify-between bg-sidebar"
+                                className={cn(
+                                    'flex h-full w-72 flex-col items-stretch justify-between bg-sidebar',
+                                    isVisitorRole && 'border-emerald-800/70 bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950 text-white',
+                                )}
                             >
                                 <SheetTitle className="sr-only">
                                     Navigation Menu
                                 </SheetTitle>
-                                <SheetHeader className="flex justify-start text-left">
-                                    <AppLogoIcon className="h-6 w-6 fill-current text-black dark:text-white" />
+                                <SheetHeader className="flex justify-start px-2 pt-1 text-left">
+                                    {isVisitorRole ? (
+                                        <div className="flex items-center">
+                                            <AppLogo />
+                                        </div>
+                                    ) : (
+                                        <AppLogoIcon className="h-6 w-6 fill-current text-black dark:text-white" />
+                                    )}
                                 </SheetHeader>
                                 <div className="flex h-full flex-1 flex-col space-y-4 p-4">
                                     <div className="flex h-full flex-col justify-between text-sm">
-                                        <div className="flex flex-col space-y-4">
+                                        <div className={cn('flex flex-col space-y-4', isVisitorRole && 'mt-2 space-y-2')}>
                                             {mainNavItems.map((item) => (
                                                 <Link
                                                     key={item.title}
                                                     href={item.href}
                                                     prefetch
-                                                    className="flex items-center space-x-2 font-medium"
+                                                    className={cn(
+                                                        'flex items-center space-x-2 font-medium',
+                                                        isVisitorRole && 'rounded-xl px-3 py-2.5 text-emerald-100 hover:bg-emerald-800/70 hover:text-white',
+                                                    )}
                                                 >
                                                     {item.icon && (
-                                                        <item.icon className="h-5 w-5" />
+                                                        <item.icon className={cn('h-5 w-5', isVisitorRole && 'text-emerald-200')} />
                                                     )}
                                                     <span>{item.title}</span>
                                                     {role === 'business_owner' && item.href === '/owner/orders' && pendingToday > 0 && (

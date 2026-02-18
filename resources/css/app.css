@@ -420,6 +420,19 @@
     .dark .visitor-page textarea::placeholder {
         color: oklch(0.8 0.02 179) !important;
     }
+
+    /* Keep gradient overlay behavior for visitor home hero */
+    .dark .visitor-page .visitor-hero-overlay.bg-gradient-to-r,
+    .dark .visitor-page .visitor-hero-overlay.bg-gradient-to-t {
+        background-image: linear-gradient(var(--tw-gradient-stops)) !important;
+        background-image: linear-gradient(
+            to top,
+            var(--tw-gradient-from),
+            var(--tw-gradient-via),
+            var(--tw-gradient-to)
+        ) !important;
+        background-color: transparent !important;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

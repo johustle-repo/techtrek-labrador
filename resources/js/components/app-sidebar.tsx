@@ -20,6 +20,7 @@ export function AppSidebar() {
     const page = usePage();
     const { auth } = page.props as { auth: { user?: { role?: string } } };
     const role = auth?.user?.role;
+    const isVisitorRole = role === 'tourist' || role === 'visitor';
     const dashboardRoute = role === 'super_admin'
         ? superadminDashboard().url
         : role === 'lgu_admin'
@@ -144,7 +145,11 @@ export function AppSidebar() {
     }
 
     return (
-        <Sidebar collapsible="icon" variant="sidebar">
+        <Sidebar
+            collapsible="icon"
+            variant="sidebar"
+            className={isVisitorRole ? 'border-r border-emerald-800/70 bg-gradient-to-b from-emerald-950 via-emerald-900 to-emerald-950' : ''}
+        >
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -158,11 +163,11 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain items={mainNavItems} role={role} />
             </SidebarContent>
 
             <SidebarFooter>
-                <NavUser />
+                <NavUser role={role} />
             </SidebarFooter>
         </Sidebar>
     );
