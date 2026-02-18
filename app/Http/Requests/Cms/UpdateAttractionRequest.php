@@ -30,6 +30,7 @@ class UpdateAttractionRequest extends FormRequest
             'address' => ['nullable', 'string', 'max:255'],
             'latitude' => ['nullable', 'numeric', 'between:-90,90'],
             'longitude' => ['nullable', 'numeric', 'between:-180,180'],
+            'environmental_fee' => ['nullable', 'numeric', 'min:0', 'max:999999.99'],
             'category_id' => ['nullable', 'integer', Rule::exists('categories', 'id')->where('type', 'attraction')],
             'status' => ['required', Rule::in(['draft', 'published', 'archived'])],
             'featured_image' => ['nullable', 'image', 'max:5120'],

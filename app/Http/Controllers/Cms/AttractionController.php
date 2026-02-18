@@ -36,6 +36,7 @@ class AttractionController extends Controller
                 'slug' => $attraction->slug,
                 'address' => $attraction->address,
                 'status' => $attraction->status,
+                'environmental_fee' => $attraction->environmental_fee,
                 'category' => $attraction->category?->name,
                 'featured_image_url' => $attraction->featured_image_path
                     ? Media::url($attraction->featured_image_path)
@@ -123,6 +124,7 @@ class AttractionController extends Controller
                 'address',
                 'latitude',
                 'longitude',
+                'environmental_fee',
                 'category_id',
                 'status',
             ]),

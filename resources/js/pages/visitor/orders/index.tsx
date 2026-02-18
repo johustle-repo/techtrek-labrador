@@ -90,7 +90,7 @@ export default function VisitorOrdersIndex({ orders, summary, filters, base_path
         <AppHeaderLayout breadcrumbs={breadcrumbs}>
             <Head title={`${page_title} | TechTrek Labrador`} />
 
-            <div className="min-h-screen bg-slate-50 text-slate-900">
+            <div className="visitor-page min-h-screen bg-slate-50 text-slate-900">
                 <main className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8 md:px-6">
                     <section className="rounded-2xl border bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-6 shadow-sm">
                         <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">{page_title}</h1>

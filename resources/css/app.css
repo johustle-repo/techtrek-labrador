@@ -356,6 +356,70 @@
     .dark .welcome-page .text-emerald-800 {
         color: oklch(0.9 0.06 171) !important;
     }
+
+    /* Premium dark-mode theme for visitor/public pages */
+    .dark .visitor-page {
+        background-image: radial-gradient(circle at 15% -5%, oklch(0.34 0.07 171 / 0.35), transparent 45%),
+            radial-gradient(circle at 100% 0%, oklch(0.31 0.08 171 / 0.3), transparent 40%);
+        background-color: oklch(0.23 0.06 171) !important;
+    }
+
+    .dark .visitor-page .bg-slate-50 {
+        background-color: transparent !important;
+    }
+
+    .dark .visitor-page .bg-white,
+    .dark .visitor-page .bg-background {
+        background-color: oklch(0.28 0.055 171) !important;
+    }
+
+    .dark .visitor-page [class*='from-emerald-50'],
+    .dark .visitor-page [class*='via-white'],
+    .dark .visitor-page [class*='to-teal-50'] {
+        --tw-gradient-from: oklch(0.31 0.065 171) var(--tw-gradient-from-position) !important;
+        --tw-gradient-via: oklch(0.285 0.058 171) var(--tw-gradient-via-position) !important;
+        --tw-gradient-to: oklch(0.26 0.058 171) var(--tw-gradient-to-position) !important;
+    }
+
+    .dark .visitor-page .border,
+    .dark .visitor-page .border-emerald-100,
+    .dark .visitor-page .border-emerald-200,
+    .dark .visitor-page .border-slate-200 {
+        border-color: oklch(0.41 0.055 172) !important;
+    }
+
+    .dark .visitor-page .text-slate-900 {
+        color: oklch(0.97 0.01 180) !important;
+    }
+
+    .dark .visitor-page .text-slate-700,
+    .dark .visitor-page .text-slate-600,
+    .dark .visitor-page .text-slate-500 {
+        color: oklch(0.88 0.02 179) !important;
+    }
+
+    .dark .visitor-page .text-emerald-700 {
+        color: oklch(0.84 0.08 171) !important;
+    }
+
+    .dark .visitor-page .bg-emerald-50,
+    .dark .visitor-page .bg-emerald-50\/50,
+    .dark .visitor-page .bg-emerald-50\/60 {
+        background-color: oklch(0.31 0.065 171 / 0.55) !important;
+    }
+
+    .dark .visitor-page input,
+    .dark .visitor-page select,
+    .dark .visitor-page textarea {
+        color: oklch(0.97 0.01 180) !important;
+        border-color: oklch(0.43 0.055 172) !important;
+        background-color: oklch(0.27 0.055 171) !important;
+    }
+
+    .dark .visitor-page input::placeholder,
+    .dark .visitor-page textarea::placeholder {
+        color: oklch(0.8 0.02 179) !important;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

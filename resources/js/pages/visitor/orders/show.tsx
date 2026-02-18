@@ -80,7 +80,7 @@ export default function VisitorOrderShow({ order, timeline, back_path, back_titl
         <AppHeaderLayout breadcrumbs={breadcrumbs}>
             <Head title={`Order ${order.reference_no ?? order.id} | TechTrek Labrador`} />
 
-            <div className="min-h-screen bg-slate-50 text-slate-900">
+            <div className="visitor-page min-h-screen bg-slate-50 text-slate-900">
                 <main className="mx-auto w-full max-w-5xl space-y-6 px-4 py-8 md:px-6">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                         <Button asChild variant="outline">

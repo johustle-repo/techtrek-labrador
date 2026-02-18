@@ -26,6 +26,7 @@ export default function AttractionsCreate({ categories }: Props) {
         address: string;
         latitude: string;
         longitude: string;
+        environmental_fee: string;
         category_id: string;
         status: string;
         featured_image: File | null;
@@ -35,6 +36,7 @@ export default function AttractionsCreate({ categories }: Props) {
         address: '',
         latitude: '',
         longitude: '',
+        environmental_fee: '',
         category_id: '',
         status: 'draft',
         featured_image: null,
@@ -131,6 +133,25 @@ export default function AttractionsCreate({ categories }: Props) {
                     </div>
 
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <div className="grid gap-2">
+                            <Label htmlFor="environmental_fee">Environmental Fee (PHP)</Label>
+                            <Input
+                                id="environmental_fee"
+                                type="number"
+                                step="0.01"
+                                min="0"
+                                value={data.environmental_fee}
+                                onChange={(e) =>
+                                    setData('environmental_fee', e.target.value)
+                                }
+                                placeholder="0.00"
+                            />
+                            <p className="text-xs text-muted-foreground">
+                                Optional. Leave blank if no environmental fee is collected.
+                            </p>
+                            <InputError message={errors.environmental_fee} />
+                        </div>
+
                         <div className="grid gap-2">
                             <Label htmlFor="category_id">Category</Label>
                             <select

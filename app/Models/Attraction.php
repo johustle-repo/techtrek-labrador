@@ -23,6 +23,7 @@ class Attraction extends Model
         'address',
         'latitude',
         'longitude',
+        'environmental_fee',
         'category_id',
         'status',
         'featured_image_path',
@@ -40,6 +41,7 @@ class Attraction extends Model
         return [
             'latitude' => 'float',
             'longitude' => 'float',
+            'environmental_fee' => 'decimal:2',
         ];
     }
 

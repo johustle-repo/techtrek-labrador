@@ -17,6 +17,7 @@ type Props = {
         name: string;
         slug: string;
         description: string;
+        environmental_fee: string | null;
         featured_image_url: string | null;
     }>;
     upcoming_events: Array<{
@@ -82,7 +83,7 @@ export default function VisitorHome({
         <AppHeaderLayout>
             <Head title="Visitor Home" />
 
-            <div className="flex flex-1 flex-col gap-6 bg-slate-50 p-4 md:p-6">
+            <div className="visitor-page flex flex-1 flex-col gap-6 bg-slate-50 p-4 md:p-6">
                 <section className="relative overflow-hidden rounded-3xl border border-emerald-200 shadow-lg shadow-emerald-900/10">
                     <div className="absolute inset-0">
                         <img
@@ -169,6 +170,11 @@ export default function VisitorHome({
                                     </div>
                                     <div className="space-y-1 p-3">
                                         <p className="text-sm font-semibold text-slate-900">{item.name}</p>
+                                        {item.environmental_fee && Number(item.environmental_fee) > 0 && (
+                                            <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-700">
+                                                Environmental Fee: PHP {Number(item.environmental_fee).toFixed(2)}
+                                            </p>
+                                        )}
                                         <p className="line-clamp-3 text-xs text-slate-600">{item.description}</p>
                                     </div>
                                 </Link>

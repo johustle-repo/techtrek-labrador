@@ -12,6 +12,7 @@ type AttractionCard = {
     slug: string;
     description: string;
     address: string | null;
+    environmental_fee: string | null;
     category: string | null;
     featured_image_url: string | null;
 };
@@ -73,7 +74,7 @@ export default function PublicAttractionsIndex({
         <AppHeaderLayout breadcrumbs={breadcrumbs}>
             <Head title="Attractions | TechTrek Labrador" />
 
-            <div className="min-h-screen bg-slate-50 text-slate-900">
+            <div className="visitor-page min-h-screen bg-slate-50 text-slate-900">
                 <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 md:px-6">
                     <section className="rounded-2xl border bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-6 shadow-sm md:p-8">
                         <div className="flex flex-col gap-2">
@@ -176,6 +177,11 @@ export default function PublicAttractionsIndex({
                                         <h2 id={`attraction-title-${item.id}`} className="text-lg font-semibold leading-tight">
                                             {item.name}
                                         </h2>
+                                        {item.environmental_fee && Number(item.environmental_fee) > 0 && (
+                                            <p className="inline-flex rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
+                                                Environmental Fee: PHP {Number(item.environmental_fee).toFixed(2)}
+                                            </p>
+                                        )}
                                         <p className="line-clamp-3 text-sm text-slate-600">
                                             {item.description}
                                         </p>

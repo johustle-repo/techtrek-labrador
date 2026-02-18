@@ -12,6 +12,7 @@ type AttractionDetail = {
     address: string | null;
     latitude: number | null;
     longitude: number | null;
+    environmental_fee: string | null;
     category: string | null;
     featured_image_url: string | null;
 };
@@ -40,7 +41,7 @@ export default function PublicAttractionShow({ attraction, related }: Props) {
         <AppHeaderLayout breadcrumbs={breadcrumbs}>
             <Head title={`${attraction.name} | TechTrek Labrador`} />
 
-            <div className="min-h-screen bg-slate-50 text-slate-900">
+            <div className="visitor-page min-h-screen bg-slate-50 text-slate-900">
                 <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 md:px-6">
                     <div className="flex items-center justify-between gap-3">
                         <div className="flex flex-wrap items-center gap-2">
@@ -87,6 +88,11 @@ export default function PublicAttractionShow({ attraction, related }: Props) {
                                     <MapPin className="h-4 w-4 text-emerald-600" />
                                     {attraction.address || 'Address not set'}
                                 </p>
+                                {attraction.environmental_fee && Number(attraction.environmental_fee) > 0 && (
+                                    <p className="inline-flex rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                                        Environmental Fee: PHP {Number(attraction.environmental_fee).toFixed(2)}
+                                    </p>
+                                )}
                             </div>
 
                             <div className="prose max-w-none prose-slate">

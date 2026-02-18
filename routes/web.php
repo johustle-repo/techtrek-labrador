@@ -48,12 +48,13 @@ Route::get('/', function () {
             ->where('status', 'published')
             ->latest()
             ->limit(6)
-            ->get(['id', 'name', 'slug', 'description', 'featured_image_path'])
+            ->get(['id', 'name', 'slug', 'description', 'featured_image_path', 'environmental_fee'])
             ->map(fn (Attraction $attraction) => [
                 'id' => $attraction->id,
                 'name' => $attraction->name,
                 'slug' => $attraction->slug,
                 'description' => \Illuminate\Support\Str::limit(strip_tags((string) $attraction->description), 140),
+                'environmental_fee' => $attraction->environmental_fee,
                 'featured_image_url' => $attraction->featured_image_path
                     ? Media::url($attraction->featured_image_path)
                     : null,

@@ -13,6 +13,7 @@ type MustVisitAttraction = {
     name: string;
     description: string;
     slug: string;
+    environmental_fee: string | null;
     featured_image_url: string | null;
 };
 
@@ -301,6 +302,11 @@ export default function Welcome() {
                                             </div>
                                             <div className="space-y-2 p-5">
                                                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">{item.name}</h3>
+                                                {item.environmental_fee && Number(item.environmental_fee) > 0 && (
+                                                    <p className="inline-flex rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:border-emerald-600/70 dark:bg-emerald-900/45 dark:text-emerald-100">
+                                                        Environmental Fee: PHP {Number(item.environmental_fee).toFixed(2)}
+                                                    </p>
+                                                )}
                                                 <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-200">{item.description}</p>
                                             </div>
                                         </Link>

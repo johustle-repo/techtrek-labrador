@@ -75,7 +75,7 @@ export default function PublicBusinessesIndex({
         <AppHeaderLayout breadcrumbs={breadcrumbs}>
             <Head title="Businesses | TechTrek Labrador" />
 
-            <div className="min-h-screen bg-slate-50 text-slate-900">
+            <div className="visitor-page min-h-screen bg-slate-50 text-slate-900">
                 <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-8 md:px-6">
                     <section className="rounded-2xl border bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-6 shadow-sm md:p-8">
                         <div className="flex flex-col gap-2">

@@ -245,12 +245,12 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                                             prefetch
                                             className={cn(
                                                 navigationMenuTriggerStyle(),
-                                                whenCurrentUrl(item.href, activeItemStyles),
+                                                !isVisitorRole && whenCurrentUrl(item.href, activeItemStyles),
                                                 isVisitorRole &&
                                                     'bg-transparent text-emerald-100 hover:bg-white/10 hover:text-white',
                                                 isVisitorRole &&
                                                     isCurrentUrl(item.href) &&
-                                                    'bg-white/15 text-white',
+                                                    'bg-emerald-700/55 text-emerald-50 ring-1 ring-emerald-400/40',
                                                 'h-9 cursor-pointer px-3',
                                             )}
                                         >
@@ -328,3 +328,7 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
         </>
     );
 }
+
+
+
+

@@ -55,6 +55,7 @@ class AttractionPageController extends Controller
                 'slug' => $attraction->slug,
                 'description' => Str::limit(strip_tags($attraction->description), 180),
                 'address' => $attraction->address,
+                'environmental_fee' => $attraction->environmental_fee,
                 'category' => $attraction->category?->name,
                 'featured_image_url' => $attraction->featured_image_path
                     ? Media::url($attraction->featured_image_path)
@@ -116,6 +117,7 @@ class AttractionPageController extends Controller
                 'address' => $attraction->address,
                 'latitude' => $attraction->latitude,
                 'longitude' => $attraction->longitude,
+                'environmental_fee' => $attraction->environmental_fee,
                 'category' => $attraction->category?->name,
                 'featured_image_url' => $attraction->featured_image_path
                     ? Media::url($attraction->featured_image_path)

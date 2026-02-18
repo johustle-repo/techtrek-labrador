@@ -44,7 +44,7 @@ export default function PublicBusinessShow({ business, related }: Props) {
         <AppHeaderLayout breadcrumbs={breadcrumbs}>
             <Head title={`${business.name} | TechTrek Labrador`} />
 
-            <div className="min-h-screen bg-slate-50 text-slate-900">
+            <div className="visitor-page min-h-screen bg-slate-50 text-slate-900">
                 <main className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 md:px-6">
                     <div className="flex items-center justify-between gap-3">
                         <Button asChild variant="outline">

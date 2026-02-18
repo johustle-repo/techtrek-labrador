@@ -28,12 +28,13 @@ class HomeController extends Controller
             ->where('status', 'published')
             ->latest()
             ->limit(3)
-            ->get(['id', 'name', 'slug', 'description', 'featured_image_path'])
+            ->get(['id', 'name', 'slug', 'description', 'featured_image_path', 'environmental_fee'])
             ->map(fn (Attraction $item) => [
                 'id' => $item->id,
                 'name' => $item->name,
                 'slug' => $item->slug,
                 'description' => Str::limit(strip_tags((string) $item->description), 110),
+                'environmental_fee' => $item->environmental_fee,
                 'featured_image_url' => Media::url($item->featured_image_path),
             ]);
 
